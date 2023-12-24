@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.javgo</groupId>
+        <artifactId>javgo-teach</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>javgo-teach-common</artifactId>
+    <packaging>pom</packaging>
+
+    <name>javgo-teach-common</name>
+
+    <modules>
+        <!-- 日志模块 -->
+        <module>common-log</module>
+        <!-- 核心模块 -->
+        <module>common-core</module>
+        <!-- 视频模块 -->
+        <module>common-video</module>
+        <!-- 服务模块 -->
+        <module>common-service</module>
+    </modules>
+</project>
