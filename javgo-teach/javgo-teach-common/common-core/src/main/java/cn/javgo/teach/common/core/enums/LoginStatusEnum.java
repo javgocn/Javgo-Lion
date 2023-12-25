@@ -1,5 +1,6 @@
 package cn.javgo.teach.common.core.enums;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -9,7 +10,7 @@ import lombok.Getter;
  * @date 2023/12/25
  */
 @Getter
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum LoginStatusEnum {
 
   REGISTER(2, "注册成功", ""),

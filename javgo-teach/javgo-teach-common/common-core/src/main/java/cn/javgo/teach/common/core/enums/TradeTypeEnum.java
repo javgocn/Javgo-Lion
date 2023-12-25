@@ -5,17 +5,17 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 文件类型枚举
+ * 交易类型枚举
  *
  * @author javgo.cn
  * @date 2023/12/25
  */
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public enum FileTypeEnum {
+public enum TradeTypeEnum {
 
-    VIDEO(1, "视频"),
-    FILE(2, "文件");
+    ONLINE(1, "线上支付"),
+    OFFLINE(2, "线下支付");
 
     private final Integer code;
 

@@ -5,19 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 文件类型枚举
+ * 用户性别枚举
  *
  * @author javgo.cn
  * @date 2023/12/25
  */
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public enum FileTypeEnum {
+public enum UserSexEnum {
 
-    VIDEO(1, "视频"),
-    FILE(2, "文件");
+    MALE(1, "男", "green"),
+    FEMALE(2, "女", "red"),
+    SECRET(3, "保密", "orange");
 
     private final Integer code;
 
     private final String desc;
+
+    private final String color;
 }

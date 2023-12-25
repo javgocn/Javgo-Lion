@@ -1,5 +1,7 @@
 package cn.javgo.teach.common.core.enums;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -9,6 +11,7 @@ import lombok.Getter;
  * @date 2023/12/24
  */
 @Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum ResultEnum {
     SUCCESS(200, "成功"),
 
@@ -50,11 +53,6 @@ public enum ResultEnum {
      * 描述
      */
     private final String message;
-
-    ResultEnum(Integer code, String message) {
-        this.code = code;
-        this.message = message;
-    }
 
     public static ResultEnum fromCode(int code) {
         for (ResultEnum resultEnum : ResultEnum.values()) {
