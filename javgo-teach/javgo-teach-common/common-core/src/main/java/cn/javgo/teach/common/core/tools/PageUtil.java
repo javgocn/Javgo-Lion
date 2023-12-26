@@ -3,12 +3,15 @@ package cn.javgo.teach.common.core.tools;
 import cn.hutool.core.bean.BeanUtil;
 import cn.javgo.teach.common.core.base.Page;
 import com.google.common.collect.Lists;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,7 +22,8 @@ import java.util.regex.Pattern;
  * @date 2023/12/24
  */
 @Slf4j
-public class PageUtil<T extends Serializable> implements Serializable {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class PageUtil implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,9 +37,6 @@ public class PageUtil<T extends Serializable> implements Serializable {
      */
     public static final int MAX_PAGE_SIZE = 1000;
 
-    private PageUtil() {
-    }
-
     /**
      * 转换分页
      *
@@ -46,11 +47,11 @@ public class PageUtil<T extends Serializable> implements Serializable {
      */
     public static <T extends Serializable> Page<T> transform(Page<T> page, Class<T> clazz) {
         Page<T> tPage = new Page<>();
-        try {
-            tPage.setList(copyList(page.getList(), clazz));
-        } catch (Exception e) {
-            log.error("transform error", e);
+        if (Objects.isNull(page)) {
+            log.error("Input page is null");
+            return tPage;
         }
+        tPage.setList(copyList(page.getList(), clazz));
         tPage.setPageCurrent(page.getPageCurrent());
         tPage.setPageSize(page.getPageSize());
         tPage.setTotalCount(page.getTotalCount());
@@ -173,6 +174,17 @@ public class PageUtil<T extends Serializable> implements Serializable {
     }
 
     /**
+     * 根据当前页和页大小计算数据库查询的起始位置
+     *
+     * @param pageCurrent 当前页
+     * @param pageSize    每页大小
+     * @return 起始位置
+     */
+    public static int calculateStart(int pageCurrent, int pageSize) {
+        return Math.max((pageCurrent - 1) * pageSize, 0);
+    }
+
+    /**
      * 根据总记录书校验页面传入的分页参数，返回分页的sql
      *
      * @param totalCount  总记录数
@@ -223,6 +235,15 @@ public class PageUtil<T extends Serializable> implements Serializable {
      */
     public static String like(String combine) {
         return "%" + combine + "%";
+    }
+
+    /**
+     * 构建左模糊查询
+     * @param combine 组合字符串
+     * @return 模糊查询字符串
+     */
+    public static String leftLike(String combine) {
+        return "%" + combine;
     }
 
     /**
