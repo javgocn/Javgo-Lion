@@ -8,7 +8,6 @@
     </parent>
 
     <artifactId>javgo-teach-app-sba</artifactId>
-    <packaging>jar</packaging>
 
     <name>javgo-teach-app-sba</name>
 </project>

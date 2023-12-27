@@ -8,12 +8,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="javgo-teach-xxl-job" />
         <module name="common-service" />
-        <module name="common-video" />
-        <module name="javgo-teach-app-sba" />
+        <module name="module-user" />
+        <module name="module-user-api" />
+        <module name="module-system-api" />
         <module name="javgo-teach-gateway" />
         <module name="common-log" />
+        <module name="javgo-teach-xxl-job" />
+        <module name="module-system" />
+        <module name="module-course-api" />
+        <module name="common-video" />
+        <module name="javgo-teach-app-sba" />
+        <module name="module-course" />
         <module name="common-core" />
       </profile>
     </annotationProcessing>

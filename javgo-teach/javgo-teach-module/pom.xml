@@ -11,4 +11,9 @@
     <packaging>pom</packaging>
 
     <name>javgo-teach-module</name>
+    <modules>
+        <module>module-course</module>
+        <module>module-user</module>
+        <module>module-system</module>
+    </modules>
 </project>

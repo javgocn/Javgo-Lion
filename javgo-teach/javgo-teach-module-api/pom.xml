@@ -11,4 +11,10 @@
     <packaging>pom</packaging>
 
     <name>javgo-teach-module-api</name>
+
+    <modules>
+        <module>module-system-api</module>
+        <module>module-course-api</module>
+        <module>module-user-api</module>
+    </modules>
 </project>

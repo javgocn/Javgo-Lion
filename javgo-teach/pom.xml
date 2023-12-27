@@ -9,6 +9,7 @@
 
     <name>javgo-lion</name>
     <url>在线教育</url>
+
     <modules>
         <!-- 基础模块 -->
         <module>javgo-teach-common</module>
@@ -29,6 +30,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <project.version>1.0-SNAPSHOT</project.version>
         <!-- 项目依赖版本管理 -->
         <spring-boot.version>2.3.5.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
@@ -85,6 +87,47 @@
             </dependency>
 
             <!-- cn.javgo -->
+            <dependency>
+                <groupId>cn.javgo</groupId>
+                <artifactId>common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.javgo</groupId>
+                <name>common-log</name>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.javgo</groupId>
+                <name>common-service</name>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.javgo</groupId>
+                <name>common-video</name>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.javgo</groupId>
+                <artifactId>module-course-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.javgo</groupId>
+                <artifactId>module-system-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.javgo</groupId>
+                <artifactId>module-user-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

@@ -15,8 +15,20 @@
     <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module-api/module-course-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module-api/module-course-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module-api/module-system-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module-api/module-system-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module-api/module-user-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module-api/module-user-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module/module-course/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module/module-course/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module/module-system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module/module-system/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module/module-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module/module-user/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-module/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javgo-teach/javgo-teach-xxl-job/src/main/java" charset="UTF-8" />

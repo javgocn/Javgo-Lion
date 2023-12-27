@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.javgo</groupId>
-        <artifactId>javgo-teach-common</artifactId>
+        <artifactId>javgo-teach-module</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>common-service</artifactId>
+    <artifactId>module-course</artifactId>
 
-    <name>common-service</name>
+    <name>module-course</name>
 
     <dependencies>
     </dependencies>
