@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 应用名称 -->
+    <springProperty name="springApplicationName" source="spring.application.name" defaultValue="javgo-lion"/>
+    <!-- 日志文件名 -->
+    <springProperty name="FILENAME" source="management.endpoint.logfile.external-file" defaultValue="/tmp/javgo-lion/info.log"/>
+    <!-- 日志文件保留历史记录的天数 -->
+    <springProperty name="FILEMAXHISTORY" source="logging.logback.rollingpolicy.max-history" defaultValue="7"/>
+    <!-- 日志格式 -->
+    <springProperty name="PATTERNFILE" source="logging.pattern.file" defaultValue="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -|   %msg%n"/>
+
+    <!-- 控制台日志输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- 日志格式 -->
+            <pattern>${PATTERNFILE}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 文件日志输出 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 日志文件名 -->
+        <file>${FILENAME}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 日志文件名格式 -->
+            <fileNamePattern>${FILENAME}.%d{yyyy-MM-dd}</fileNamePattern>
+            <!-- 日志文件保留历史记录的天数 -->
+            <MaxHistory>${FILEMAXHISTORY}</MaxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!-- 日志格式 -->
+            <pattern>${PATTERNFILE}</pattern>
+        </layout>
+    </appender>
+
+    <!-- 本地环境 -->
+    <springProfile name="local">
+        <!-- 日志级别 -->
+        <logger name="cn.javgo.lion" level="debug"/>
+        <logger name="org.springframework.jdbc.core.JdbcTemplate" level="debug"/>
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <!-- 测试环境 -->
+    <springProfile name="dev">
+        <logger name="cn.javgo.lion" level="debug"/>
+        <logger name="org.springframework.jdbc.core.JdbcTemplate" level="debug"/>
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </root>
+    </springProfile>
+
+    <!-- 生产环境 -->
+    <springProfile name="!local">
+        <logger name="cn.javgo.lion" level="warn"/>
+        <root level="warn">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </root>
+    </springProfile>
+</configuration>
