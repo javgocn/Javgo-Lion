@@ -95,19 +95,19 @@
 
             <dependency>
                 <groupId>cn.javgo</groupId>
-                <name>common-log</name>
+                <artifactId>common-log</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>cn.javgo</groupId>
-                <name>common-service</name>
+                <artifactId>common-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>cn.javgo</groupId>
-                <name>common-video</name>
+                <artifactId>common-video</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
