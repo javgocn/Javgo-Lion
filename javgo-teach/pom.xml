@@ -15,7 +15,7 @@
         <module>javgo-teach-common</module>
         <!-- 业务模块 -->
         <module>javgo-teach-module</module>
-        <!-- 业务模块 API -->
+        <!-- 业务对象模块 -->
         <module>javgo-teach-module-api</module>
         <!-- 监控中心模块 -->
         <module>javgo-teach-app-sba</module>
@@ -23,6 +23,7 @@
         <module>javgo-teach-xxl-job</module>
         <!-- 网关模块 -->
         <module>javgo-teach-gateway</module>
+        <module>javgo-teach-generator</module>
     </modules>
 
     <properties>
@@ -43,6 +44,15 @@
         <minio.version>8.3.3</minio.version>
         <mybatis.spring.boot.version>1.3.1</mybatis.spring.boot.version>
         <druid.version>1.1.21</druid.version>
+        <mybatis-plus-generator.version>3.3.0</mybatis-plus-generator.version>
+        <mybatis-generator.version>1.3.3</mybatis-generator.version>
+        <freemarker.version>2.3.29</freemarker.version>
+        <mysql.version>8.0.28</mysql.version>
+        <logback-classic.version>1.2.0</logback-classic.version>
+        <log4j-over-slf4j.version>1.7.25</log4j-over-slf4j.version>
+        <jcl-over-slf4j.version>1.7.25</jcl-over-slf4j.version>
+        <jul-to-slf4j.version>1.7.25</jul-to-slf4j.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <!-- 项目插件版本管理 -->
         <spring-boot-maven-plugin.version>2.7.6</spring-boot-maven-plugin.version>
         <maven-compile-plugin.version>3.8.1</maven-compile-plugin.version>
@@ -125,11 +135,68 @@
                 <version>${mybatis.spring.boot.version}</version>
             </dependency>
 
+            <!-- MyBatis Plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-generator.version}</version>
+            </dependency>
+
+            <!-- MyBatis Generator -->
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>${mybatis-generator.version}</version>
+            </dependency>
+
+            <!-- FreeMarker 模板引擎 -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+
+            <!-- MySQL 数据库驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
             <!-- Druid 连接池 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
+            </dependency>
+
+            <!-- 日志 -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback-classic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>log4j-over-slf4j</artifactId>
+                <version>${log4j-over-slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${jcl-over-slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jul-to-slf4j</artifactId>
+                <version>${jul-to-slf4j.version}</version>
+            </dependency>
+
+            <!-- 阿里巴巴的 fastjson 工具包 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
 
             <!-- cn.javgo -->

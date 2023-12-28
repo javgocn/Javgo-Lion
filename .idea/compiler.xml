@@ -14,6 +14,7 @@
         <module name="module-system-api" />
         <module name="javgo-teach-gateway" />
         <module name="common-log" />
+        <module name="javgo-teach-generator" />
         <module name="javgo-teach-xxl-job" />
         <module name="module-system" />
         <module name="module-course-api" />
