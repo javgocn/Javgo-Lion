@@ -8,8 +8,7 @@
     </parent>
 
     <artifactId>module-user</artifactId>
-
-    <name>user</name>
+    <name>module-user</name>
 
     <dependencies>
     </dependencies>

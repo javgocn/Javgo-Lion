@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Javgo-Lion.iml" filepath="$PROJECT_DIR$/Javgo-Lion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/elearning-admin/elearning-admin.iml" filepath="$PROJECT_DIR$/elearning-admin/elearning-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/elearning-web/elearning-web.iml" filepath="$PROJECT_DIR$/elearning-web/elearning-web.iml" />
     </modules>
   </component>
 </project>
