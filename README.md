@@ -421,6 +421,16 @@ git --version
 git version 2.32.0
 ```
 
+如果 git 操作远程库失败，可以尝试执行以下命令取消代理：
+
+```shell
+git config --global http.proxy http://127.0.0.1:1080
+git config --global https.proxy http://127.0.0.1:1080
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
+
 #### 1.2.3 安装 IDEA 插件
 
 ### 1.3 项目运行
