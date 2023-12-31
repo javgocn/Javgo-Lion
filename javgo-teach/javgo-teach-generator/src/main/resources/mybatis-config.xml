@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- 引入外部配置文件 -->
+    <properties resource="config.properties"/>
+
+    <!-- 数据库驱动，若引入了驱动 jar，可以不配置 -->
+    <!-- <classPathEntry location="绝对路径：/Users/javgo/mysql-connector-java-5.1.44.jar" />  -->
+
+    <context id="MySql" targetRuntime="MyBatis3">
+        <!-- 注解插件 -->
+        <plugin type="cn.javgo.lion.mybatis.generator.plugins.AnnotationPlugin">
+            <property name="annotationClass" value="org.apache.ibatis.annotations.Mapper"/>
+            <property name="annotationName" value="@Mapper"/>
+        </plugin>
+        <!-- 分页插件 -->
+        <plugin type="cn.javgo.lion.mybatis.generator.plugins.PaginationPlugin"/>
+        <!-- 覆盖 XML 插件 -->
+        <plugin type="cn.javgo.lion.mybatis.generator.plugins.IsMergeablePlugin"/>
+        <!-- 序列化插件 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- ToString 插件 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+        <!-- 配置注释 -->
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释，默认false；true：去除；false：不去除 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 指定生成的注释是否将包括时间戳，默认false -->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库连接（外部文件 config.properties 读取） -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="${db.url}" userId="${db.username}"
+                        password="${db.password}"/>
+
+        <!-- 自定类型义解析器 -->
+        <javaTypeResolver type="cn.javgo.lion.mybatis.generator.iternal.type.JavaTypeResolverCustomImpl">
+            <!--
+                false: JDBC DECIMAL 和 NUMERIC 类型解析为 Integer 类型（默认）
+                true: JDBC DECIMAL 和 NUMERIC 类型解析为 java.math.BigDecimal
+            -->
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+
+        <!-- 注意：targetProject 不会自动创建，需要先存在，否则不生成实体和配置文件 -->
+        <!-- 生成 entity 类 -->
+        <javaModelGenerator targetPackage="${packagePrefix}.${packageName}.dao.impl.mapper.entity"
+                            targetProject="${projectPath}/${projectName}/src/main/java">
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 生成 xml 文件 -->
+        <sqlMapGenerator targetPackage="mybatis" targetProject="${projectPath}/${projectName}/src/main/resources"/>
+        <!-- 生成 mapper 类 -->
+        <javaClientGenerator targetPackage="${packagePrefix}.${packageName}.dao.impl.mapper"
+                             targetProject="${projectPath}/${projectName}/src/main/java" type="XMLMAPPER"/>
+
+        <!-- tableName = % 代表生成全部的表 -->
+        <!-- <table tableName="%" />-->
+        <table tableName="${tableNames}"/>
+        <!-- tableName=表名；domainObjectName=生成的实体名；column为你需要覆盖的数据库字段-->
+        <!-- <table tableName="${tableNames}" domainObjectName="WholeProcesssMark">-->
+        <!--  <columnOverride column="src_url" jdbcType="VARCHAR" />-->
+        <!--  <columnOverride column="mark_content" jdbcType="VARCHAR" />-->
+        <!-- </table>-->
+    </context>
+</generatorConfiguration>
