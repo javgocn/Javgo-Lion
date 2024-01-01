@@ -60,7 +60,7 @@ public class ControllerGenerator {
         GlobalConfig globalConfig = new GlobalConfig();
         // 是否覆盖已有文件
         globalConfig.setFileOverride(true);
-        // 是否设置 swagger2 注解
+        // 是否设置实体类的 swagger2 注解
         globalConfig.setSwagger2(true);
         // 作者
         globalConfig.setAuthor(ConfigUtil.AUTHOR);
@@ -69,7 +69,7 @@ public class ControllerGenerator {
         // 为代码生成器设置全局配置
         autoGenerator.setGlobalConfig(globalConfig);
 
-        // 数据库配置
+        // 数据源配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         // 设置数据库类型
         dataSourceConfig.setDbType(DbType.MYSQL);
@@ -98,14 +98,14 @@ public class ControllerGenerator {
         strategyConfig.setRestControllerStyle(true);
         // 设置生成的实体类继承的父类全称
         strategyConfig.setEntityTableFieldAnnotationEnable(true);
-        // 如果 setInclude() 不加参数，默认生成所有表
+        // 如果 config.properties 配置文件中设置了表名，则直接使用该配置
         if (Objects.nonNull(ConfigUtil.TABLE_NAMES) && !"".equals(ConfigUtil.TABLE_NAMES.trim()) && !"%".equals(ConfigUtil.TABLE_NAMES.trim())) {
             strategyConfig.setInclude(ConfigUtil.TABLE_NAMES.split(","));
         }
         // 为代码生成器设置策略配置
         autoGenerator.setStrategy(strategyConfig);
 
-        // 模版配置
+        // 自定义代码模版配置
         TemplateConfig templateConfig = new TemplateConfig();
         // 设置不生成 controller、entity、mapper、xml、service、serviceImpl 文件
         templateConfig.setController(null);
@@ -116,9 +116,11 @@ public class ControllerGenerator {
         templateConfig.setServiceImpl(null);
         // 为代码生成器设置模版引擎配置
         autoGenerator.setTemplate(templateConfig);
-        // 设置自定义模版
+
+        // 自定义属性注入
         autoGenerator.setCfg(cfg());
-        // 设置模版引擎
+
+        // MyBatis Plus 默认模版引擎为 Velocity，这里指定为 Freemarker
         autoGenerator.setTemplateEngine(new FreemarkerTemplateEngine());
 
         // 执行生成
@@ -146,7 +148,7 @@ public class ControllerGenerator {
     }
 
     /**
-     * 自定义模版
+     * 自定义属性注入
      */
     private static InjectionConfig cfg() {
         InjectionConfig injectionConfig = new InjectionConfig() {
@@ -195,7 +197,11 @@ public class ControllerGenerator {
     }
 
     /**
-     * service - dao 模块
+     * service - dao 模块<br/>
+     * 在 MyBatis Plus 中，FileOutConfig 用于指定模板文件（.ftl文件）和生成文件的路径与命名规则。每个FileOutConfig实例都代表一个特定的文件输出配置。<br/>
+     * FreeMarker 模板文件（以 .ftl 为扩展名）是一种用于生成文本输出（如源代码、XML 文件等）的模板。在 MyBatis Plus 或类似的代码生成工具中，
+     * .ftl 文件被用来定义生成的源代码文件的格式和内容。这些模板文件利用 FreeMarker 模板语言，允许动态插入变量、执行条件判断和循环等操作，
+     * 以生成定制化的代码文件。
      */
     private static List<FileOutConfig> serviceDaoList() {
         // 项目路径：项目所在磁盘路径 + 项目名称
@@ -208,7 +214,7 @@ public class ControllerGenerator {
         fileOutConfigList.add(new FileOutConfig("/template/service/dao/impl/impl.java.ftl") {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                // 生成的文件路径：项目路径 + 包路径 + 包名 + dao/impl + 实体类名 + DaoImpl.java
+                // 自定义输出文件名，如果 Entity 设置了前后缀，此处的名称会跟着发生变化
                 return path + "/src/main/java/" + ConfigUtil.PACKAGE_PATH + File.separator + ConfigUtil.PACKAGE_NAME + "/dao/impl/" +
                         tableInfo.getEntityName() + "DaoImpl.java";
             }
